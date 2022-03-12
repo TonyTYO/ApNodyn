@@ -1,0 +1,52 @@
+            DateTime now = DateTime.Now;
+            int hours = 0, minutes = 0, seconds = 0, totalSeconds = 0;
+            hours = (24 - now.Hour) - 1;
+            minutes = (60 - now.Minute) - 1;
+            seconds = (60 - now.Second - 1);
+
+            totalSeconds = seconds + (minutes * 60) + (hours * 3600);
+		totalmilliseconds = totalSeconds * 1000
+
+
+    TimeSpan untilMidnight = DateTime.Today.AddDays (1.0) - DateTime.Now;
+    double secs = untilMidnight.TotalSeconds;
+
+
+
+
+
+Use Subtract method of timespan:
+
+            DateTime timeNow = DateTime.Now;
+            DateTime timeMidnight = DateTime.Today.AddDays(1);
+            TimeSpan ts = timeMidnight.Subtract(timeNow);
+            int secondsToMidnight = (int)ts.TotalSeconds;
+
+ 
+
+or shorter version like Mike showed:
+
+TimeSpan ts = DateTime.Today.AddDays(1).Subtract(DateTime.Now);
+int secondsToMidnight = (int)ts.TotalSeconds;
+
+
+
+
+
+
+
+
+
+Sure you can, but its a bit more (not a lot mor :)) complicated:
+
+ 
+
+            DateTime now = DateTime.Now;
+            DateTime midnight = DateTime.Today.AddDays(1);
+
+            int hours = 0, minutes = 0, seconds = 0, totalSeconds = 0;
+            hours = (24 -now.Hour) - 1;
+            minutes = (60 - now.Minute) - 1;
+            seconds = (60 - now.Second - 1);
+
+            totalSeconds = seconds + (minutes * 60) + (hours * 3600);

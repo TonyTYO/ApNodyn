@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardBackgroundColor="@color/colorPrimary"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="3dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--text view for displaying our note text-->
+        <TextView
+            android:id="@+id/tvNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@id/ivDelete"
+            android:padding="2dp"
+            android:layout_marginLeft="3dp"
+            android:text="@string/tv_note"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tvExtra"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvNote"
+            android:layout_toStartOf="@id/ivDelete"
+            android:padding="2dp"
+            android:layout_marginLeft="3dp"
+            android:text="@string/tv_extra"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+        <!--text view for displaying activation date-->
+        <TextView
+            android:id="@+id/tvActivate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvExtra"
+            android:layout_toStartOf="@id/ivDelete"
+            android:padding="2dp"
+            android:layout_marginLeft="3dp"
+            android:text="@string/tv_activation"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+        <!--text view for displaying our last updated text-->
+        <TextView
+            android:id="@+id/tvTextDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvActivate"
+            android:padding="2dp"
+            android:layout_marginLeft="3dp"
+            android:text="@string/tv_updated_at"
+            android:textColor="@color/white"
+            android:textSize="13sp" />
+
+         <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvActivate"
+            android:layout_toRightOf="@id/tvTextDate"
+            android:layout_alignBottom="@id/tvTextDate"
+            android:padding="2dp"
+            android:layout_marginLeft="3dp"
+            android:textColor="@color/white"
+            android:textSize="13sp" />
+
+        <!--edit text for activation date-->
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/smVisibility"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvActivate"
+            android:layout_alignBaseline="@id/tvDate"
+            android:layout_alignParentEnd="true"
+            android:text=""
+            android:textSize="13sp" />
+
+        <!--imageview for displaying delete icon-->
+        <ImageView
+            android:id="@+id/ivDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginBottom="3dp"
+            android:padding="3dp"
+            android:src="@drawable/ic_delete"
+            app:tint="@color/white"
+            android:contentDescription="@string/im_description" />
+
+    </RelativeLayout>
+
+
+</com.google.android.material.card.MaterialCardView>

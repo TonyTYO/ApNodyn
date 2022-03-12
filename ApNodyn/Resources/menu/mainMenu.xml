@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!--For all properties see: https://aka.ms/android-menu-resource-->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+	<!--Update strings and icons-->
+	<item android:id="@+id/action_add"
+			android:title="AddNote"
+			android:icon="@drawable/ic_baseline_edit_note_24"
+			app:showAsAction="ifRoom"/>
+
+	<item android:id="@+id/action_list"
+		   android:title="ListAll"
+		   android:icon="@drawable/ic_baseline_format_list_bulleted_24"
+		   app:showAsAction="ifRoom|withText"/>
+
+	<item
+        android:title="@string/menu_list"
+        android:id="@+id/menu_main_list"/>
+	<item
+        android:title="@string/menu_active"
+        android:id="@+id/menu_main_active"/>
+	<item
+        android:title="@string/menu_visible"
+        android:id="@+id/menu_main_visible"/>
+	<item
+        android:title="@string/menu_widget"
+        android:id="@+id/menu_main_widget"/>
+	<item
+		android:title="@string/menu_add"
+		android:id="@+id/menu_main_add"/>
+
+</menu>
+
+<!-- Code to implement into Activity:
+
+public override bool OnCreateOptionsMenu(IMenu menu)
+{
+  //change main_compat_menu
+	MenuInflater.Inflate(Resource.Menu.mainMenu, menu);
+	return base.OnCreateOptionsMenu(menu);
+}
+
+
+public override bool OnOptionsItemSelected(IMenuItem item)
+{
+	switch (item.ItemId) {
+	case Resource.Id.action_edit:
+		Toast.MakeText (this, "You pressed edit action!", ToastLength.Short).Show ();
+		break;
+	case Resource.Id.action_save:
+		Toast.MakeText (this, "You pressed save action!", ToastLength.Short).Show ();
+		break;
+	}
+	return base.OnOptionsItemSelected(item);
+}
+
+-->

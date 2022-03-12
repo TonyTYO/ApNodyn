@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">ApNodyn</string>
+
+	<string name="action_settings">Settings</string>
+	<string name="hello_world">Hello world!</string>
+	<string name="empty_string">Empty View</string>
+
+	<!--activity_main.xml-->
+	<string name="am_xmlCroeso">Croeso i Nodyn</string>
+
+	<!--toolbar menu-->
+	<string name="menu_list">Pob nodyn</string>
+	<string name="menu_active">Nodiadau gweithredol</string>
+	<string name="menu_visible">Nodiadau gweladwy</string>
+	<string name="menu_widget">Nodiadau teclun</string>
+	<string name="menu_add">Adio nodyn newydd</string>
+
+	<!--note_rv_item.xml-->
+	<string name="tv_note">Nodyn</string>
+	<string name="tv_extra">Manylion</string>
+	<string name="tv_activation">Dyddiad</string>
+	<string name="tv_updated_at">Diweddarwyd:</string>
+	<string name="im_description">Delete icon</string>
+
+	<!--activity_note_entry.xml-->
+	<string name="note_name_hint">Nodyn</string>
+	<string name="note_desc_hint">Manylion Pellach</string>
+	<string name="activation_date_text">Dyddiad\nDangos</string>
+	<string name="activation_date_hint">dd-MM-yyyy</string>
+	<string name="arddangos_text">Arddangos</string>
+	<string name="btn_save">Cadw</string>
+
+	<!--App Widget-->
+	<string name="app_widget_description">This is an app widget description</string>
+	
+</resources>
