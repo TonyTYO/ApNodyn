@@ -60,7 +60,7 @@ namespace ApNodyn
             // Specify event handlers for click events
             notesAdapter.ItemClick += OnItemClick;
             notesAdapter.DeleteClick += OnDeleteClick;
-            notesAdapter.SwitchChange += OnSwitchChange;
+            notesAdapter.VisibleChange += OnVisibleChange;
             notesAdapter.PosChange += OnMove;
             notesAdapter.MoveEnd += OnMoveEnd;
         }
@@ -108,7 +108,7 @@ namespace ApNodyn
             Toast.MakeText(Application.Context, "Note Id:" + id + " deleted", ToastLength.Short).Show();
         }
 
-        void OnSwitchChange(object sender, int position)
+        void OnVisibleChange(object sender, int position)
         {
             if (notesAdapter.IsBinding) return;
             Note note = notes[position];

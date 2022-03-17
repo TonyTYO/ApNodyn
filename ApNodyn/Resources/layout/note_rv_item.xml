@@ -26,6 +26,7 @@
             android:textColor="@android:color/white"
             android:textSize="18sp" />
 
+        <!--text view for displaying extra details-->
         <TextView
             android:id="@+id/tvExtra"
             android:layout_width="match_parent"
@@ -41,19 +42,18 @@
         <!--text view for displaying activation date-->
         <TextView
             android:id="@+id/tvActivate"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tvExtra"
-            android:layout_toStartOf="@id/ivDelete"
             android:padding="2dp"
             android:layout_marginLeft="3dp"
             android:text="@string/tv_activation"
             android:textColor="@android:color/white"
             android:textSize="18sp" />
 
-        <!--text view for displaying our last updated text-->
+        <!--text view for displaying last updated date-->
         <TextView
-            android:id="@+id/tvTextDate"
+            android:id="@+id/tvDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tvActivate"
@@ -63,25 +63,24 @@
             android:textColor="@color/white"
             android:textSize="13sp" />
 
-         <TextView
-            android:id="@+id/tvDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvActivate"
-            android:layout_toRightOf="@id/tvTextDate"
-            android:layout_alignBottom="@id/tvTextDate"
-            android:padding="2dp"
-            android:layout_marginLeft="3dp"
-            android:textColor="@color/white"
-            android:textSize="13sp" />
-
-        <!--edit text for activation date-->
+        <!--switch for visibility-->
         <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/smVisibility"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tvActivate"
             android:layout_alignBaseline="@id/tvDate"
+            android:layout_alignParentEnd="true"
+            android:text=""
+            android:textSize="13sp" />
+       
+        <!--switch for colour-->
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/smColour"
+            android:theme="@style/HighlightSwitchTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ivDelete"
             android:layout_alignParentEnd="true"
             android:text=""
             android:textSize="13sp" />

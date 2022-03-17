@@ -1,6 +1,10 @@
-﻿using Android.Content;
+﻿using Android.App;
+using Android.Graphics;
+using Android.Content;
 using Android.Widget;
+using AndroidX.Core.Content;
 using System.Collections.Generic;
+
 
 namespace ApNodyn
 {
@@ -8,12 +12,16 @@ namespace ApNodyn
     {
         private List<Note> listNotes = new List<Note>();
         private Context context;
+        private Color colorHighlight;
+        private Color colorNormal;
 
 
         public StickyNoteListProvider(Context contextNew)
 
         {
             context = contextNew;
+            colorHighlight = new Android.Graphics.Color(ContextCompat.GetColor(Application.Context, Resource.Color.red));
+            colorNormal = new Android.Graphics.Color(ContextCompat.GetColor(Application.Context, Resource.Color.black));
         }
 
         public int Count { get { return listNotes.Count; } }
@@ -26,6 +34,15 @@ namespace ApNodyn
         public RemoteViews GetViewAt(int position)
         {
             RemoteViews remoteView = new RemoteViews(context.PackageName, Resource.Layout.sticky_note_list_item);
+            if (listNotes[position].Highlight)
+            {
+                remoteView.SetTextColor(Resource.Id.widgetItemTaskNameLabel, colorHighlight);
+
+            }
+            else
+            {
+                remoteView.SetTextColor(Resource.Id.widgetItemTaskNameLabel, colorNormal);
+            }
             remoteView.SetTextViewText(Resource.Id.widgetItemTaskNameLabel, listNotes[position].Text);
 
             // Fill in Pending event on click

@@ -13,6 +13,7 @@ namespace ApNodyn
          * Extra        string Extra Information about note
          * Activate     DateTime Date to activate
          * Visible      bool true - show note false - don't show note
+         * Highlight    bool true - show in red
          * Position     int Position in list on Sticky note Default impossible value 1000
          * Date         DateTime Date of last change automatically entered
          *
@@ -24,10 +25,11 @@ namespace ApNodyn
         public string Extra { get; set; }
         public DateTime Activate { get; set; }
         public bool Visible { get; set; }
+        public bool Highlight { get; set; } = false;
         public int Position { get; set; } = 1000;
         public DateTime Date { get; set; }
 
-
+        // Return shallow copy of note
         public Note Copy()
         {
             return (Note)this.MemberwiseClone();

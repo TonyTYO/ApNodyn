@@ -13,7 +13,8 @@ namespace ApNodyn
         // Set eventhandlers for Clicks on entry, Delete icon, Visibility Switch
         public event EventHandler<int> ItemClick;
         public event EventHandler<int> DeleteClick;
-        public event EventHandler<int> SwitchChange;
+        public event EventHandler<int> VisibleChange;
+        public event EventHandler<int> HighlightChange;
 
         // Flag set to true while binding is occuring
         public bool IsBinding = false;
@@ -30,7 +31,7 @@ namespace ApNodyn
             var itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.note_rv_item, parent, false);
 
             // Return the view holder (event handlers specified in parameters)
-            return new NotesReorderViewHolder(itemView, OnClick, OnDelete, OnSwitch);
+            return new NotesReorderViewHolder(itemView, OnClick, OnDelete, OnVisible, OnHighlight);
         }
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
@@ -48,6 +49,7 @@ namespace ApNodyn
             vholder.NoteDescription.Text = note.Extra;
             vholder.NoteActivation.Text = note.Activate.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture); ;
             vholder.NoteVisible.Checked = note.Visible;
+            vholder.NoteHighlight.Checked = note.Highlight;
             vholder.NoteUpdated.Text = note.Date.ToString("dd'-'MM'-'yyyy' 'HH':'mm':'ss", CultureInfo.InvariantCulture);
             IsBinding = false;
         }
@@ -70,10 +72,16 @@ namespace ApNodyn
                 DeleteClick(this, position);
         }
 
-        void OnSwitch(int position)
+        void OnVisible(int position)
         {
-            if (SwitchChange != null)
-                SwitchChange(this, position);
+            if (VisibleChange != null)
+                VisibleChange(this, position);
+        }
+
+        void OnHighlight(int position)
+        {
+            if (HighlightChange != null)
+                HighlightChange(this, position);
         }
 
         // Update notes and notify of updates

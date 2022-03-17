@@ -8,4 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+	<style name="HighlightSwitchTheme" parent="ThemeOverlay.AppCompat.Light">
+		<item name="colorAccent">@color/red</item>
+	</style>
+
+
 </resources>

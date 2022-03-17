@@ -54,7 +54,8 @@ namespace ApNodyn
             // Specify event handlers for click events
             notesAdapter.ItemClick += OnItemClick;
             notesAdapter.DeleteClick += OnDeleteClick;
-            notesAdapter.SwitchChange += OnSwitchChange;
+            notesAdapter.VisibleChange += OnVisibleChange;
+            notesAdapter.HighlightChange += OnHighliteChange;
         }
 
         protected override void OnStart()
@@ -131,7 +132,7 @@ namespace ApNodyn
             Toast.MakeText(Application.Context, "Note Id:" + id + " deleted", ToastLength.Short).Show();
         }
 
-        void OnSwitchChange(object sender, int position)
+        void OnVisibleChange(object sender, int position)
         {
             if (notesAdapter.IsBinding) return;
             Note note = notes[position];
@@ -139,7 +140,18 @@ namespace ApNodyn
             note.Visible = !note.Visible;
             database.SaveNote(note);
             SendUpdate();
-            Toast.MakeText(Application.Context, "OnSwitchChange: " + id + " " + note.Visible, ToastLength.Short).Show();
+            Toast.MakeText(Application.Context, "OnVisibleChange: " + id + " " + note.Visible, ToastLength.Short).Show();
+        }
+
+        void OnHighliteChange(object sender, int position)
+        {
+            if (notesAdapter.IsBinding) return;
+            Note note = notes[position];
+            int id = note.ID;
+            note.Highlight = !note.Highlight;
+            database.SaveNote(note);
+            SendUpdate();
+            Toast.MakeText(Application.Context, "OnHighlightChange: " + id + " " + note.Highlight, ToastLength.Short).Show();
         }
 
         // Notify adapter and widget of changes to data

@@ -19,7 +19,8 @@ namespace ApNodyn
         // Set eventhandlers for Clicks on entry, Delete icon, Visibility Switch Change, Item moved.
         public event EventHandler<int> ItemClick;
         public event EventHandler<int> DeleteClick;
-        public event EventHandler<int> SwitchChange;
+        public event EventHandler<int> VisibleChange;
+        public event EventHandler<int> HighlightChange;
         public event EventHandler<ItemMoveEventArgs> PosChange;
         public event EventHandler<ItemMoveEventArgs> MoveEnd;
 
@@ -57,7 +58,7 @@ namespace ApNodyn
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
             var itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.note_rv_item, parent, false);
-            return new NotesReorderViewHolder(itemView, OnClick, OnDelete, OnSwitch);
+            return new NotesReorderViewHolder(itemView, OnClick, OnDelete, OnVisible, OnHighlight);
         }
 
         public bool OnLongClick(View v)
@@ -79,10 +80,16 @@ namespace ApNodyn
                 DeleteClick(this, position);
         }
 
-        void OnSwitch(int position)
+        void OnVisible(int position)
         {
-            if (SwitchChange != null)
-                SwitchChange(this, position);
+            if (VisibleChange != null)
+                VisibleChange(this, position);
+        }
+
+        void OnHighlight(int position)
+        {
+            if (HighlightChange != null)
+                HighlightChange(this, position);
         }
 
         // Handlers for Move events
