@@ -20,6 +20,7 @@ namespace ApNodyn
         protected EditText etNoteActivate = null;
         protected DatePicker dpNoteActivation = null;
         protected SwitchMaterial swNoteVisible = null;
+        protected SwitchMaterial swNoteHighlight = null;
         protected Button btnSave = null;
         protected NoteDatabase database;
         protected int noteId;
@@ -38,6 +39,7 @@ namespace ApNodyn
             etNoteActivate = FindViewById<EditText>(Resource.Id.tieNoteActivation);
             dpNoteActivation = FindViewById<DatePicker>(Resource.Id.dpActivate);
             swNoteVisible = FindViewById<SwitchMaterial>(Resource.Id.smVisibility);
+            swNoteHighlight = FindViewById<SwitchMaterial>(Resource.Id.smHighlight);
             // Set button click event
             btnSave = FindViewById<Button>(Resource.Id.btnSave);
             btnSave.Click += (sender, e) => { Save(); };
@@ -57,6 +59,7 @@ namespace ApNodyn
                 dpNoteActivation.DateTime = note.Activate;
                 etNoteActivate.Text = note.Activate.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture);
                 swNoteVisible.Checked = note.Visible;
+                swNoteHighlight.Checked = note.Highlight;
             }
 
             // Set Datechanged event on datepicker to show date in Activation TextView
@@ -103,6 +106,7 @@ namespace ApNodyn
                 note.Activate = dpNoteActivation.DateTime;
             }
             note.Visible = swNoteVisible.Checked;
+            note.Highlight = swNoteHighlight.Checked;
             // Set last changed date
             note.Date = DateTime.UtcNow;
             note.Position = 1000;

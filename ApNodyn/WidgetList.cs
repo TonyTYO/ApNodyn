@@ -61,6 +61,7 @@ namespace ApNodyn
             notesAdapter.ItemClick += OnItemClick;
             notesAdapter.DeleteClick += OnDeleteClick;
             notesAdapter.VisibleChange += OnVisibleChange;
+            notesAdapter.HighlightChange += OnHighliteChange;
             notesAdapter.PosChange += OnMove;
             notesAdapter.MoveEnd += OnMoveEnd;
         }
@@ -118,6 +119,17 @@ namespace ApNodyn
             database.SaveNote(note);
             SendUpdate();
             Toast.MakeText(Application.Context, "OnSwitchChange: " + id + " " + note.Visible, ToastLength.Short).Show();
+        }
+
+        void OnHighliteChange(object sender, int position)
+        {
+            if (notesAdapter.IsBinding) return;
+            Note note = notes[position];
+            int id = note.ID;
+            note.Highlight = !note.Highlight;
+            database.SaveNote(note);
+            SendUpdate();
+            Toast.MakeText(Application.Context, "OnHighlightChange: " + id + " " + note.Highlight, ToastLength.Short).Show();
         }
 
         void OnMove(object sender, ItemMoveEventArgs args)

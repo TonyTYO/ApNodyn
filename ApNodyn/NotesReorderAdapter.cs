@@ -51,6 +51,7 @@ namespace ApNodyn
             vholder.NoteDescription.Text = note.Extra;
             vholder.NoteActivation.Text = note.Activate.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture); ;
             vholder.NoteVisible.Checked = note.Visible;
+            vholder.NoteHighlight.Checked = note.Highlight;
             vholder.NoteUpdated.Text = note.Date.ToString("dd'-'MM'-'yyyy' 'HH':'mm':'ss", CultureInfo.InvariantCulture);
             IsBinding = false;
         }

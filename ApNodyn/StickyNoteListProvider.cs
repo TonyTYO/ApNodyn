@@ -4,7 +4,8 @@ using Android.Content;
 using Android.Widget;
 using AndroidX.Core.Content;
 using System.Collections.Generic;
-
+using Android.Text;
+using Android.Text.Style;
 
 namespace ApNodyn
 {
@@ -37,13 +38,15 @@ namespace ApNodyn
             if (listNotes[position].Highlight)
             {
                 remoteView.SetTextColor(Resource.Id.widgetItemTaskNameLabel, colorHighlight);
-
+                SpannableString wordtoSpan = new SpannableString(listNotes[position].Text);
+                wordtoSpan.SetSpan(new StyleSpan(TypefaceStyle.Bold), 0, wordtoSpan.Length(), 0);
+                remoteView.SetTextViewText(Resource.Id.widgetItemTaskNameLabel, wordtoSpan);
             }
             else
             {
                 remoteView.SetTextColor(Resource.Id.widgetItemTaskNameLabel, colorNormal);
+                remoteView.SetTextViewText(Resource.Id.widgetItemTaskNameLabel, listNotes[position].Text);
             }
-            remoteView.SetTextViewText(Resource.Id.widgetItemTaskNameLabel, listNotes[position].Text);
 
             // Fill in Pending event on click
             Intent fillInIntent = new Intent(context, typeof(Intent));

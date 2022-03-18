@@ -28,6 +28,7 @@
 	<string name="activation_date_text">Dyddiad\nDangos</string>
 	<string name="activation_date_hint">dd-MM-yyyy</string>
 	<string name="arddangos_text">Arddangos</string>
+	<string name="amlygu_text">Amlygu</string>
 	<string name="btn_save">Cadw</string>
 
 	<!--App Widget-->
